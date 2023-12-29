@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --almost-white:#FCFCFC;
+  --dark-blue: #3655b3;
+  --rosewoord:#6B0F1A;
+  --white-blue:#d3deff;
+}
+
+.container {
+  display: grid;
+  background-color: var(--white-blue);
+  grid-template-columns: 15dvw 85dvw;
+  grid-template-rows: 6dvh 30dvh 64dvh;
+}
+

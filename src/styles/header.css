@@ -1,0 +1,19 @@
+.header {
+  border-style: solid;
+  border-color: #595959;
+  border-width: 0px 0px 2px;
+  align-items: center;
+
+  grid-column: 1 / -1;
+  grid-row: 1/2;
+
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  padding: 7px;
+}
+
+.header-text {
+  color: var(--dark-blue);
+}

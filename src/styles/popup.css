@@ -1,0 +1,47 @@
+:root {
+    --shade-green:#3DDC97;
+    
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-30%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 6px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  padding: 20px;
+}
+
+.popup input {
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 7px;
+    padding: 4px;
+}
+
+.popup label {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.submit-btn {
+    align-self: center;
+    background-color: white;
+    border-color: var(--shade-green);
+    margin: 10px 0;
+    padding: 5px;
+    width: 50%;
+    border-radius: 12px;
+    transition: background-color 0.5s ease-out 0.1s;
+}
+
+.submit-btn:hover {
+    background-color: var(--shade-green);
+    
+}
