@@ -1,13 +1,12 @@
 :root {
-    --shade-green:#3DDC97;
-    
+  --shade-green: #3ddc97;
 }
 
 .popup {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-30%);
+  transform: translate(-50%, -30%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,29 +18,34 @@
 }
 
 .popup input {
-    margin: 10px;
-    font-size: 20px;
-    border-radius: 7px;
-    padding: 4px;
+  margin: 10px;
+  font-size: 20px;
+  border-radius: 7px;
+  padding: 4px;
 }
 
 .popup label {
-    font-size: 20px;
-    margin: 5px;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.popup textarea {
+  height: 70px;
+  padding: 5px;
+  font-size: 20px;
 }
 
 .submit-btn {
-    align-self: center;
-    background-color: white;
-    border-color: var(--shade-green);
-    margin: 10px 0;
-    padding: 5px;
-    width: 50%;
-    border-radius: 12px;
-    transition: background-color 0.5s ease-out 0.1s;
+  align-self: center;
+  background-color: white;
+  border-color: var(--rosewood);
+  margin: 10px 0;
+  padding: 5px;
+  width: 50%;
+  border-radius: 12px;
+  transition: background-color 0.5s ease-out 0.1s;
 }
 
 .submit-btn:hover {
-    background-color: var(--shade-green);
-    
+  background-color: var(--rosewood);
 }

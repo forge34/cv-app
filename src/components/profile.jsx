@@ -1,15 +1,17 @@
 import { useState } from "react";
 import "../styles/profile-section.css";
 import "../styles/popup.css";
+import Modal from "./modal";
+import TextInput from "./textInput";
 
 export default function ProfileSection() {
   const [visibile, setVisible] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [name, setName] = useState("Placeholder name");
-  const [job, setJob] = useState("Placeholder job");
-  const [bio, setBio] = useState(
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita ipsum molestias repellat eius officiis, repudiandae possimus nemo ab, aliquam ex quaerat, quam quas inventore cume"
-  );
+  const [fData, setFData] = useState({
+    name: "Name",
+    job: "Job title",
+    bio: "bio",
+  });
 
   function show() {
     if (!visibile) setVisible(true);
@@ -17,9 +19,16 @@ export default function ProfileSection() {
   }
 
   function submit(e) {
-    setName(e.name);
-    setBio(e.bio);
-    setJob(e.job);
+    const data = new FormData(e.target);
+    const name = data.get("name");
+    const job = data.get("job");
+    const bio = data.get("bio");
+
+    setFData({
+      ["name"]: name,
+      ["job"]: job,
+      ["bio"]: bio,
+    });
     setVisible(false);
     setIsDisabled(false);
   }
@@ -33,9 +42,9 @@ export default function ProfileSection() {
           Edit
         </button>
 
-        <h1 className="name">{name}</h1>
-        <h3 className="job">{job}</h3>
-        <p className="bio">{bio} </p>
+        <h1 className="name">{fData.name}</h1>
+        <h3 className="job">{fData.job}</h3>
+        <p className="bio">{fData.bio} </p>
       </div>
 
       <div className="btn-container">
@@ -43,6 +52,12 @@ export default function ProfileSection() {
         <button className="edit-btn">Save as</button>
         <button className="edit-btn">Share link</button>
       </div>
+
+      <Modal visibile={visibile} submit={submit}>
+        <TextInput label="Full Name" inputName="name"></TextInput>
+        <TextInput label="Job title" inputName="job"></TextInput>
+        <TextInput label="Bio" inputName="bio" textArea={true}></TextInput>
+      </Modal>
     </div>
   );
 }
