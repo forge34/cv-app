@@ -1,0 +1,23 @@
+.job {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 7px 0px;
+}
+
+
+.editjob-btn {
+    background-color: white;
+    font-size: 18px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: var(--rosewoord);
+    max-width: fit-content;
+    padding: 0px 4px;
+    transition: background-color 0.25s ease-out 0.01s;
+}
+
+.editjob-btn:hover {
+    background-color: var(--rosewoord);
+    color: white;
+}

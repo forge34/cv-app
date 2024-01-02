@@ -1,0 +1,32 @@
+@import url("./main.css");
+
+.work-tab {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 7px;
+    background-color: white;
+    max-width: 50%;
+
+    overflow-y: scroll;
+    max-height: 100%;
+}
+
+.addwork-btn {
+    background-color: white;
+    font-size: 18px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: var(--rosewoord);
+    max-width: fit-content;
+    padding: 0px 4px;
+    transition: background-color 0.25s ease-out 0.01s;
+}
+
+.addwork-btn:hover {
+    background-color: var(--rosewoord);
+    color: white;
+}
