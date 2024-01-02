@@ -1,0 +1,31 @@
+@import url("./main.css");
+
+.education-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-wrap: wrap;
+
+  overflow: auto;
+  width: 50%;
+
+  background-color: white;
+  margin: 7px;
+  padding: 10px;
+}
+
+.addedu-btn {
+  background-color: white;
+  font-size: 18px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: var(--rosewoord);
+  max-width: fit-content;
+  padding: 0px 4px;
+  transition: background-color 0.25s ease-out 0.01s;
+}
+
+.addedu-btn:hover {
+  background-color: var(--rosewoord);
+  color: white;
+}
