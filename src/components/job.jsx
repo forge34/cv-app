@@ -5,7 +5,12 @@ import TextInput from "./textInput";
 
 export default function Job({ name, title, from, to }) {
   const [btnState, setBtnState] = useState({ visible: false, disabled: false });
-  const [jobData , setJobData] = useState({})
+  const [jobData, setJobData] = useState({
+    name: name,
+    title: title,
+    from: from,
+    to: to,
+  });
 
   function handleEdit() {
     setBtnState({
@@ -14,7 +19,16 @@ export default function Job({ name, title, from, to }) {
     });
   }
 
-  function submit() {
+  function submit(e) {
+    const data = new FormData(e.target)
+
+    setJobData({
+      name: data.get("name"),
+      title: data.get("title"),
+      from: data.get("from"),
+      to: data.get("to"),
+    });
+
     setBtnState({
       visible: false,
       disabled: false,
@@ -43,10 +57,10 @@ export default function Job({ name, title, from, to }) {
         <input type="date" id="to" name="to"></input>
       </Modal>
 
-      <h3>Company name : {name} </h3>
-      <h3>Job title : {title}</h3>
-      <h3>From : {from}</h3>
-      <h3>To: {to}</h3>
+      <h3>Company name : {jobData.name} </h3>
+      <h3>Job title : {jobData.title}</h3>
+      <h3>From : {jobData.from}</h3>
+      <h3>To: {jobData.to}</h3>
     </div>
   );
 }

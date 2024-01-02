@@ -5,7 +5,7 @@ import TextInput from "./textInput";
 import Job from "./job";
 
 export default function WorkTab() {
-  const [workData, setWorkData] = useState(new Array(0));
+  const [workContainer, setWorkContainer] = useState(new Array(0));
   const [visibile, setVisible] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -22,12 +22,12 @@ export default function WorkTab() {
     const from = data.get("from");
     const to = data.get("to");
 
-    setWorkData([
-      ...workData,
+    setWorkContainer([
+      ...workContainer,
       { name: name, title: title, from: from, to: to },
     ]);
 
-    console.log(workData);
+    console.log(workContainer);
     setVisible(false);
     setIsDisabled(false);
   }
@@ -50,7 +50,7 @@ export default function WorkTab() {
         <input type="date" id="to" name="to"></input>
       </Modal>
 
-      {workData.map((e) => {
+      {workContainer.map((e) => {
         return <Job key={e.name} {...e}></Job>;
       })}
     </div>
