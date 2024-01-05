@@ -1,42 +1,66 @@
 import { useState } from "react";
-import "../styles/education.css"
+import "../styles/education.css";
 import Modal from "./modal";
 import TextInput from "./textInput";
+import Study from "./study";
 
 export default function EductionSection(params) {
-      const [btnState, setBtnState] = useState({
-        visible: false,
-        disabled: false,
-      });
+  const [btnState, setBtnState] = useState({
+    visible: false,
+    disabled: false,
+  });
 
-      function handleEdit() {
-        setBtnState({
-          visible: true,
-          disabled: true,
-        });
-      }
+  const [eduContainer, setEduContainer] = useState(new Array(0));
 
-      function submit(e) {
-        const data = new FormData(e.target);
+  function handleEdit() {
+    setBtnState({
+      visible: true,
+      disabled: true,
+    });
+  }
 
-        setBtnState({
-          visible: false,
-          disabled: false,
-        });
-      }
+  function submit(e) {
+    const data = new FormData(e.target);
+    console.log(data.get("sname"));
 
-      return <div className="education-section">
-        <h1>Education</h1>
-        <button className="addedu-btn" disabled={btnState.disabled} onClick={handleEdit}> Add education</button>
+    setEduContainer([
+      ...eduContainer,
+      {
+        school: data.get("school"),
+        sn: data.get("sname"),
+        date: data.get("date"),
+      },
+    ]);
 
-        <Modal visibile={btnState.visible} submit={submit}>
-            <TextInput label="School name"></TextInput>
-            <TextInput label="Title of study"></TextInput>
+    setBtnState({
+      visible: false,
+      disabled: false,
+    });
+  }
 
-            <label htmlFor="date">Date of study</label>
-            <input id="date" type="date"></input>
-        </Modal>
+  return (
+    <div className="education-section">
+      <h1>Education</h1>
+      <button
+        className="addedu-btn"
+        disabled={btnState.disabled}
+        onClick={handleEdit}
+      >
+        {" "}
+        Add education
+      </button>
 
+      <Modal visibile={btnState.visible} submit={submit}>
+        <TextInput label="School name" inputName="school"></TextInput>
+        <TextInput label="Title of study" inputName="sname"></TextInput>
 
-      </div>
+        <label htmlFor="date">Date of study</label>
+        <input id="date" type="date" name="date"></input>
+      </Modal>
+
+      {eduContainer.map((ele) => {
+        return <Study key={ele.school} {...ele}></Study>;
+      })}
+    </div>
+  );
 }

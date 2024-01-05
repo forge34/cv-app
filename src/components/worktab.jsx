@@ -27,7 +27,6 @@ export default function WorkTab() {
       { name: name, title: title, from: from, to: to },
     ]);
 
-    console.log(workContainer);
     setVisible(false);
     setIsDisabled(false);
   }

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Modal from "./modal";
+import TextInput from "./textInput";
 
 export default function Study({ school, sn, date }) {
   const [btnState, setBtnState] = useState({
@@ -22,7 +24,9 @@ export default function Study({ school, sn, date }) {
   function submit(e) {
     const data = new FormData(e.target);
 
-    setJobData({
+    console.log(data)
+
+    setStudyDate({
       school: data.get("school"),
       studyname: data.get("studyname"),
       date: data.get("date"),
@@ -34,7 +38,28 @@ export default function Study({ school, sn, date }) {
     });
   }
 
-  
+  return (
+    <div>
+      <button
+        className="editjob-btn"
+        onClick={handleEdit}
+        disabled={btnState.disabled}
+      >
+        {" "}
+        Edit
+      </button>
 
-  return <div></div>;
+      <Modal visibile={btnState.visible} submit={submit}>
+        <TextInput label="School Name" inputName="school"></TextInput>
+        <TextInput label="Study title" inputName="studyname"></TextInput>
+
+        <label htmlFor="to">To</label>
+        <input type="date" id="to" name="date"></input>
+      </Modal>
+
+      <h3>School name : {studyData.school}</h3>
+      <h3>Study name : {studyData.studyname}</h3>
+      <h3>Date : {studyData.date}</h3>
+    </div>
+  );
 }
